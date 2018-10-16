@@ -9,6 +9,10 @@ function getAllKittens() {
   return kittens
 }
 
+function getOneKitten() {
+  return kitten
+}
+
 function create(body) {
   const errors = []
   const name = body.name

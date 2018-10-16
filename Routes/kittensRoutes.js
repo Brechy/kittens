@@ -6,7 +6,7 @@ router.get('/kittens', kittroller.getAllKittens)
 router.get('/kittens/:id', kittroller.getOneKitten)
 
 router.post('/kittens', kittroller.createKittens)
-router.put('/kittens/:id', kittroller.putOneKitten)
+router.post('/kittens/:id', kittroller.createOneKitten)
 
 router.delete('/kittens/:id', kittroller.deleteOneKitten)
 
