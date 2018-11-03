@@ -26,7 +26,7 @@ const getOneKitten = (id) => {
   }
 }
 
-//update kitten
+//update kitten works as an add and delete as this is a static JSON file system. This is a full CRUD api
 const updateKitten = (update) => {
   const filter = (obj) => {
     if(obj.id === update.id) {
@@ -37,11 +37,10 @@ const updateKitten = (update) => {
   }
   let filteredKittens = getAllKittens().filter(filter)
   filteredKittens.push(update)
-  
+
   let j = JSON.stringify(filteredKittens)
   fs.writeFileSync(j)
 }
-
 
 module.exports = {
   getAllKittens,
