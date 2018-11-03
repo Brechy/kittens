@@ -8,6 +8,4 @@ router.get('/kittens/:id', kittroller.getOneKitten)
 router.post('/kittens', kittroller.createKittens)
 router.post('/kittens/:id', kittroller.createOneKitten)
 
-router.delete('/kittens/:id', kittroller.deleteOneKitten)
-
 module.exports = router
