@@ -1,38 +1,50 @@
 const uuid = require('uuid/v4') //v4 is random
-const kittens = [{
-  id: uuid(),
-  name: 'Spoopy',
-  age: 'katten'
-}]
+const fs = require('fs');
+console.log(fs)
 
-function getAllKittens() {
-  return kittens
+//get all kittens
+const getAllKittens = () => {
+  let s = fs.readFileSync('db.json', 'utf8');
+  let j = JSON.parse(s)
+  return j;
 }
 
-function getOneKitten() {
-  return kitten
-}
-
-function create(body) {
-  const errors = []
-  const name = body.name
-
-  let response;
-  if(!name) {
-    errors.push('Please name your kitten')
-    response = { error }
-  } else {
-    cosnt kitten = {
-      id: uuid(),
-      name
+//get one kitten by id
+const getOneKitten = (id) => {
+  const filter = (obj) => {
+    if(obj.id === id){
+      return true
+    } else {
+      return false
     }
-    kittens.push(kitten)
-    response = kitten
   }
-  return response
+  let filteredKittens = getAllKittens().filter(filter)
+  if(filteredKittens.length === 0) {
+    return undefined
+  } else {
+    return filteredKittens[0]
+  }
 }
+
+//update kitten
+const updateKitten = (update) => {
+  const filter = (obj) => {
+    if(obj.id === update.id) {
+      return false
+    } else {
+      return true
+    }
+  }
+  let filteredKittens = getAllKittens().filter(filter)
+  filteredKittens.push(update)
+  
+  let j = JSON.stringify(filteredKittens)
+  fs.writeFileSync(j)
+}
+
 
 module.exports = {
   getAllKittens,
-  createKittens
+  getOneKitten,
+  updateKitten
 }
