@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   })
 })
 
-const listener = () => console.log('Listening on port ${port}')
+const listener = () => console.log(`Listening on port ${port}`)
 app.listen(port, listener)
 
 module.exports = app
