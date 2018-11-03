@@ -34,20 +34,29 @@ function createOneKitten(req, res, next) {
     return next({
       status: 400,
       message: 'Could not make a new kitten'
-      errors: result.errors
     })
   }
   res.status(201).json({ data: result })
 }
 
 //deleteOneKitten
-function deleteOneKitten(req, res, next) {
-
-}
+// async function deleteOneKitten(req, res, next) {
+//   try {
+//     const id = parseInt(req.params.id, 2);
+//
+//     if(success) {
+//       res.status(204).end();
+//     } else {
+//       res.status(404).end();
+//     }
+//   } catch(err) {
+//     next(err);
+//   }
+// }
 
 module.exports = {
   getAllKittens,
+  getOneKitten,
   createKittens,
-  createOneKitten,
-  deleteOneKitten
+  createOneKitten
 }
