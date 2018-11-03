@@ -1,0 +1,18 @@
+{
+  "kittens": [{
+      "id": 1,
+      "name": "Spoopy",
+      "age": "katten"
+    },
+    {
+      "id": 2,
+      "name": "Toodles",
+      "age": "baby"
+    },
+    {
+      "id": 3,
+      "name": "Meepers",
+      "age": "kitten"
+    }
+  ]
+}
