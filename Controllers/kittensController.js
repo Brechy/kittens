@@ -45,23 +45,24 @@ function updateKitten(req, res, next) {
 }
 
 //deleteOneKitten
-// async function deleteOneKitten(req, res, next) {
-//   try {
-//     const id = parseInt(req.params.id, 2);
-//
-//     if(success) {
-//       res.status(204).end();
-//     } else {
-//       res.status(404).end();
-//     }
-//   } catch(err) {
-//     next(err);
-//   }
-// }
+function deleteOneKitten(req, res, next) {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const success = model.deleteKitten(id);
+    if(success) {
+      res.status(204).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch(err) {
+    res.status(400).end();
+  }
+}
 
 module.exports = {
   getAllKittens,
   getOneKitten,
   createKitten,
   updateKitten,
+  deleteOneKitten,
 }
