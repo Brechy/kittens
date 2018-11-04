@@ -8,8 +8,18 @@ function getAllKittens(req, res, next) {
 
 //getOneKitten
 function getOneKitten(req, res, next) {
-  const data = model.getOneKitten()
-  res.status(200).join({ data })
+  try {
+    const id = parseInt(req.params.id, 10);
+
+    const data = model.getOneKitten(id);
+    if(data) {
+      res.status(200).json(data);
+    } else {
+      res.status(404).end();
+    }
+  } catch(err) {
+    res.status(400).json("invalid request");
+  }
 }
 
 //createKittens
