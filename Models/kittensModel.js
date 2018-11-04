@@ -54,8 +54,17 @@ const updateKitten = (update) => {
   return update;
 }
 
+const deleteKitten = (id_in) => {
+  let kittens = getAllKittens();
+  let filtered = kittens.filter({id: id} => id === id_in)
+  fs.writeFileSync('db.json', JSON.stringify(filtered));
+  // if the length changed, we found something to filter.
+  return kittens.length != filtered.length;
+}
+
 module.exports = {
   getAllKittens,
   getOneKitten,
-  updateKitten
+  updateKitten,
+  deleteKitten,
 }
