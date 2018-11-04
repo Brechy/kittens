@@ -3,7 +3,7 @@ const kittensModel = require('../Models/kittensModel.js')
 //getAllKittens
 function getAllKittens(req, res, next) {
   const data = model.getAllKittens()
-  res.status(200).json({ data })
+  res.status(200).json(data)
 }
 
 //getOneKitten
