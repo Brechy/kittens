@@ -27,11 +27,10 @@ function createKitten(req, res, next) {
   try {
     const result = model.updateKitten(req.body)
 
-    res.status(201).json(req.body)
+    res.status(201).json(result);
   } catch (err) {
     res.status(500).json(err);
   }
-  res.status(201).json({ data: result })
 }
 
 //createOneKitten
@@ -65,6 +64,6 @@ function createOneKitten(req, res, next) {
 module.exports = {
   getAllKittens,
   getOneKitten,
-  createKittens,
   createOneKitten
+  createKitten,
 }
