@@ -1,4 +1,3 @@
-const uuid = require('uuid/v4') //v4 is random
 const fs = require('fs');
 console.log(fs)
 

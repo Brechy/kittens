@@ -23,15 +23,13 @@ function getOneKitten(req, res, next) {
 }
 
 //createKittens
-function createKittens(req, res, next) {
-  const result = model.create(req.body)
+function createKitten(req, res, next) {
+  try {
+    const result = model.updateKitten(req.body)
 
-  if(result.errors) {
-    return next({
-      status: 400,
-      message: 'Could not make new kittens',
-      errors: result.errors
-    })
+    res.status(201).json(req.body)
+  } catch (err) {
+    res.status(500).json(err);
   }
   res.status(201).json({ data: result })
 }
