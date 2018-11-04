@@ -34,16 +34,14 @@ function createKitten(req, res, next) {
 }
 
 //createOneKitten
-function createOneKitten(req, res, next) {
-  const result = model.create(req.body)
+function updateKitten(req, res, next) {
+  try {
+    const result = model.updateKitten(req.body)
 
-  if(result.errors) {
-    return next({
-      status: 400,
-      message: 'Could not make a new kitten'
-    })
+    res.status(200).json(result)
+  } catch (err) {
+    res.status(400).json(err);
   }
-  res.status(201).json({ data: result })
 }
 
 //deleteOneKitten
@@ -64,6 +62,6 @@ function createOneKitten(req, res, next) {
 module.exports = {
   getAllKittens,
   getOneKitten,
-  createOneKitten
   createKitten,
+  updateKitten,
 }
