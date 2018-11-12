@@ -1,4 +1,4 @@
-const kittensModel = require('../Models/kittensModel.js')
+const model = require('../Models/kittensModel.js')
 
 //getAllKittens
 function getAllKittens(req, res, next) {
